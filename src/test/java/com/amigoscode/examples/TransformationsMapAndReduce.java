@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class TransformationsMapAndReduce {
 
     @Test
@@ -26,9 +28,10 @@ public class TransformationsMapAndReduce {
 
         List<PersonDTO> dtos = people.stream()
                 .filter(person -> person.getAge() > 20)
-                .map(PersonDTO::map)
+                .map(personPersonDTOFunction)
                 .collect(Collectors.toList());
-
+        //assures that equals else error
+//        assertThat(people.size()).isEqualTo(dtos.size());
         dtos.forEach(System.out::println);
 
     }

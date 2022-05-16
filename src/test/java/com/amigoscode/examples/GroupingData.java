@@ -16,7 +16,7 @@ public class GroupingData {
     public void simpleGrouping() throws Exception {
         Map<String, List<Car>> map = MockData.getCars()
                 .stream()
-                .collect(Collectors.groupingBy(Car::getMake));
+                .collect(Collectors.groupingBy(car -> car.getMake()));
         map.forEach((s, cars) -> {
             System.out.println("Make " + s);
             cars.forEach(System.out::println);
